@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GDG Linktree</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script type="module" src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js"></script>
+
+<style>
+  :root {
+  --bg-light: #f9f9f9;
+  --text-light: #333;
+  --card-light: #fff;
+  --border-light: #ddd;
+  --bg-dark: #121212;
+  --text-dark: #f1f1f1;
+  --card-dark: #1e1e1e;
+  --border-dark: #444;
+  --gdg-blue: #4285F4;
+  --gdg-red: #EA4335;
+  --gdg-green: #34A853;
+}
+
+/* Base styles */
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg-light);
+  color: var(--text-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  transition: all 0.3s;
+  justify-content: center;
+  
+}
+
+body.dark {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+body.dark .container {
+  background: rgba(53, 42, 42, 0.7);
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  /* border: 1px solid rgba(255, 255, 255, 0.34); */
+  padding: 25px;
+  
+  width: 100%;
+  transition: all 0.3s;
+}
+
+.logo {
+  width: 100%;
+  display: flex;
+  height: 90px;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  z-index: -2;
+  overflow: hidden;
+  
+  position: relative;
+}
+.logo dotlottie-wc{
+  width: 1300px; 
+  height: 300px; 
+  object-fit:cover;
+  overflow: hidden; 
+   cursor: pointer;
+   position: absolute;
+   top:-50px
+   
+}
+
+
+
+.logo dotlottie-wc:hover {
+  transform: scale(1.1);
+}
+
+h1 { margin: 10px 0; font-size: 24px; }
+h4 { margin: 5px 0; font-weight: normal; color: gray; }
+p { margin: 15px 0; }
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  background: var(--card-light);
+  color: var(--text-light);
+  border: 2px solid var(--border-light);
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.link:hover {
+  border-color: var(--gdg-blue);
+  color: white;
+  background: var(--gdg-blue);
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+body.dark .link {
+  background: var(--card-dark);
+  color: var(--text-dark);
+  border: 2px solid var(--border-dark);
+}
+
+.toggle-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background: var(--gdg-blue);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.toggle-btn:hover {
+  background: #3367d6;
+  transform: scale(1.05);
+}
+
+footer {
+  margin-top: 20px;
+  font-size: 14px;
+  color: gray;
+}
+
+
+.toggle{
+  position: absolute;
+  right:0px;
+  top:0px;
+  z-index: 10000;
+}
+.overlay {
+  background-image: url(./logo.png);
+  background-size: 200%; 
+  width: 100%;    
+  background-position: center;  
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  max-width: 600px;
+}
+
+/* 📱 Mobile */
+@media (max-width: 600px) {
+  .container {
+    padding: 15px;
+    max-width: 100%;
+  }
+  .overlay{
+    width: 98%;
+  }
+  .logo{
+    height: 50px;
+   position: relative;
+  }
+  .logo dotlottie-wc {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top:-90px;
+    
+  }
+
+  h1 { font-size: 18px; }
+  h4 { font-size: 14px; }
+  p { font-size: 14px; }
+
+  .link {
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 20px;
+  }
+
+  .toggle-btn {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+/* 📲 Tablets */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .container {
+    max-width: 90%;
+  }
+
+  .logo dotlottie-wc {
+    width: 140px;
+    height: 140px;
+  }
+
+  h1 { font-size: 22px; }
+  p { font-size: 15px; }
+}
+
+/* 💻 Large screens */
+@media (min-width: 1025px) {
+  .container {
+    max-width: 600px;
+  }
+}
+.circle-red{
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  background-color: rgba(236, 66, 53);
+  position: fixed;
+  top:-50px;
+  left:-50px
+}
+.circle-yellow{
+  border-radius: 50%;
+  width: 280px;
+  height: 280px;
+  background-color: rgba(249, 187, 4);
+  position: fixed;
+  bottom:-60px;
+  right:-90px;
+}
+.triangle {
+  width: 0px;
+  height: 0px;
+  border-left: 80px solid transparent;
+  border-right: 80px solid transparent;
+  border-bottom: 140px solid rgba(66, 133, 246); /* triangle color */
+  position: fixed;
+  right:-60px;
+  rotate: 50deg;
+  top:250px;
+
+}
+.circle-green{
+  border-radius: 130px;
+  width: 400px;
+  height: 250px;
+  background-color: rgba(16, 157, 88);
+  position: fixed;
+  bottom:-70px;
+  left:-170px;
+  rotate: -30deg
+}
+.square-blue{
+  width:200px;
+  height:200px;
+  border-radius: 50px;
+  rotate: 45deg;
+  position: fixed;
+  right:50px;
+  top:-100px;
+  background-color: rgba(66, 133, 246)  ;
+}
+.square-green{
+  width:100px;
+  height:100px;
+  border-radius: 25px;
+  rotate: 45deg;
+  position: fixed;
+  right:-50px;
+  top:50px;
+  background-color: rgba(16, 157, 88)  ;
+}
+.wavy-circle {
+  --s: 250px; /* adjust to control the size */
+  position: fixed;
+  top:200px;
+  left:-150px;
+  background-color: rgba(249, 187, 4);
+
+  width: var(--s); 
+  aspect-ratio: 1;
+  --g:/calc(var(--s)*0.162) calc(var(--s)*0.162) radial-gradient(50% 50%,#000 99%,#0000 101%) no-repeat;
+  mask: calc(50% + var(--s)*0.392) calc(50% + var(--s)*0.025) var(--g),calc(50% + var(--s)*0.302) calc(50% + var(--s)*0.25) var(--g),calc(50% + var(--s)*0.098) calc(50% + var(--s)*0.38) var(--g),calc(50% + var(--s)*-0.145) calc(50% + var(--s)*0.365) var(--g),calc(50% + var(--s)*-0.331) calc(50% + var(--s)*0.21) var(--g),calc(50% + var(--s)*-0.392) calc(50% + var(--s)*-0.025) var(--g),calc(50% + var(--s)*-0.302) calc(50% + var(--s)*-0.25) var(--g),calc(50% + var(--s)*-0.098) calc(50% + var(--s)*-0.38) var(--g),calc(50% + var(--s)*0.145) calc(50% + var(--s)*-0.365) var(--g),calc(50% + var(--s)*0.331) calc(50% + var(--s)*-0.21) var(--g),radial-gradient(calc(var(--s)*0.432),#000 99%,#0000 101%) subtract,calc(50% + var(--s)*0.447) calc(50% + var(--s)*0.177) var(--g),calc(50% + var(--s)*0.258) calc(50% + var(--s)*0.406) var(--g),calc(50% + var(--s)*-0.03) calc(50% + var(--s)*0.48) var(--g),calc(50% + var(--s)*-0.307) calc(50% + var(--s)*0.371) var(--g),calc(50% + var(--s)*-0.466) calc(50% + var(--s)*0.12) var(--g),calc(50% + var(--s)*-0.447) calc(50% + var(--s)*-0.177) var(--g),calc(50% + var(--s)*-0.258) calc(50% + var(--s)*-0.406) var(--g),calc(50% + var(--s)*0.03) calc(50% + var(--s)*-0.48) var(--g),calc(50% + var(--s)*0.307) calc(50% + var(--s)*-0.371) var(--g),calc(50% + var(--s)*0.466) calc(50% + var(--s)*-0.12) var(--g);
+}
+/* 🔥 Common slide-in animation */
+@keyframes slideIn {
+  0% {
+    transform: translate(var(--start-x), var(--start-y));
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0,0);
+    opacity: 1;
+  }
+}
+
+/* Apply animation */
+.circle-red,
+.circle-green,
+.circle-yellow,
+.triangle,
+.square-blue,
+.square-green,
+.wavy-circle {
+  animation: slideIn 1s ease-out forwards;
+  opacity: 0;
+}
+
+/* 👉 Different start directions */
+.circle-red {
+  --start-x: -300px;   /* from left */
+  --start-y: -300px;   /* from top */
+  animation-delay: 0.2s;
+}
+.wavy-circle{
+   --start-x: -300px;   /* from left */
+  --start-y: -300px;   /* from top */
+  animation-delay: 0.5s;
+}
+
+.circle-yellow {
+  --start-x: 300px;   /* from right */
+  --start-y: 300px;   /* from bottom */
+  animation-delay: 0.4s;
+}
+
+.triangle {
+  --start-x: 300px;   /* from right */
+  --start-y: 0px;     /* slide horizontally */
+  animation-delay: 0.6s;
+}
+
+.circle-green {
+  --start-x: -400px;  /* from left */
+  --start-y: 300px;   /* from bottom */
+  animation-delay: 0.8s;
+}
+
+.square-blue {
+  --start-x: 0px;
+  --start-y: -400px;  /* from top */
+  animation-delay: 1s;
+}
+
+.square-green {
+  --start-x: 300px;   /* from right */
+  --start-y: -200px;  /* from top-right */
+  animation-delay: 1.2s;
+}
+/* 📱 Mobile (max-width: 600px) */
+@media (max-width: 600px) {
+  .circle-red {
+    width: 120px;
+    height: 120px;
+    top: -30px;
+    left: -30px;
+  }
+  .circle-yellow {
+    width: 160px;
+    height: 160px;
+    bottom: -40px;
+    right: -80px;
+  }
+  .triangle {
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 90px solid rgba(66, 133, 246);
+    right: -30px;
+    top: 150px;
+  }
+  .circle-green {
+    width: 250px;
+    height: 160px;
+    bottom: -50px;
+    left: -160px;
+  }
+  .square-blue {
+    width: 120px;
+    height: 120px;
+    right: 20px;
+    top: -60px;
+  }
+  .square-green {
+    width: 70px;
+    height: 70px;
+    right: -30px;
+    top: 40px;
+  }
+  .wavy-circle {
+    width: 150px;
+    height: 150px;
+    top: 320px;
+    left: -80px;
+  }
+}
+.link-icon {
+  width: 20px;       /* icon size */
+  height: 20px;
+  object-fit: contain;
+  margin-right: 10px; /* space between icon and text */
+  vertical-align: middle;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-label {
+  background-color: #111;
+  width: 40px;
+  height: 16px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fa-moon {color: #f1c40f;}
+
+.fa-sun {color: #f39c12;}
+
+.checkbox-label .ball {
+  background-color: #fff;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(24px);
+}
+.links{
+  z-index: 100;
+}
+</style>
+</head>
+<body>
+  <div class="circle-red"></div>
+  <div class="circle-green"></div>
+  <div class="circle-yellow"></div>
+  <div class="triangle"></div>
+  <div class="square-blue"></div>
+  <div class="square-green"></div>
+  <div class="wavy-circle"></div>
+
+    <div class="overlay">
+        <div class="container">
+    <div class="logo" id="gdgLogo">
+      <dotlottie-wc
+      src="https://lottie.host/d1963905-045a-4d06-a3a5-a42952da7577/imiseZBbwI.lottie"
+      
+      autoplay
+      >
+    </dotlottie-wc>
+     <div class="toggle">
+  <input type="checkbox" class="checkbox" id="checkbox">
+  <label for="checkbox" class="checkbox-label">
+    <i class="fas fa-moon"></i>
+    <i class="fas fa-sun"></i>
+    <span class="ball"></span>
+  </label>
+</div>
+    </div >
+    <div class="links">
+       <h4>@gdg_aitd</h4>
+    <h1>Google Developer Group Dr.AITD</h1>
+    <p>Connect • Learn • Grow</p>
+
+    <!-- All your links -->
+<a href="https://gdg.community.dev/gdg-on-campus-dr-ambedkar-institute-of-technology-for-divyangjan-kanpur-india/" class="link">
+  <img src="icons/book.png" alt="Chapter Icon" class="link-icon"> Chapter Page
+</a>
+
+<a href="https://www.instagram.com/gdg_aitd/profilecard/" class="link">
+  <img src="icons/instagram.png" alt="Instagram Icon" class="link-icon"> Instagram
+</a>
+
+<a href="https://x.com/Gdsc_DrAith" class="link">
+  <img src="icons/twitter.png" alt="Twitter Icon" class="link-icon"> Twitter
+</a>
+
+<a href="https://in.linkedin.com/company/gdg-aitd" class="link">
+  <img src="icons/linkedin.png" alt="LinkedIn Icon" class="link-icon"> LinkedIn
+</a>
+
+<a href="https://youtube.com/gdgxyz" class="link">
+  <img src="icons/gmail.png" alt="Email Icon" class="link-icon"> Email
+</a>
+
+<a href="https://gdg.community.dev/events/details/google-gdg-on-campus-dr-ambedkar-institute-of-technology-for-handicapped-kanpur-india-presents-gdg-info-session-your-path-to-tech-success/" class="link">
+  <img src="icons/gdg.webp" alt="Info Icon" class="link-icon"> Info Session
+</a>
+
+<a href="https://gdg.community.dev/events/details/google-gdg-on-campus-dr-ambedkar-institute-of-technology-for-handicapped-kanpur-india-presents-open-source-made-easy-how-to-contribute-with-gssoc/" class="link">
+  <img src="icons/gsoc.png" alt="Open Source Icon" class="link-icon"> Open Source made Easy
+</a>
+
+<a href="https://gdg.community.dev/events/details/google-gdg-on-campus-dr-ambedkar-institute-of-technology-for-handicapped-kanpur-india-presents-build-with-ai/" class="link">
+  <img src="icons/genai.png" alt="AI Icon" class="link-icon"> Build with AI
+</a>
+
+<a href="https://gdg.community.dev/events/details/google-gdg-on-campus-dr-ambedkar-institute-of-technology-for-handicapped-kanpur-india-presents-innovate-x-coding-challenge/" class="link">
+  <img src="icons/innovate.webp" alt="Innovation Icon" class="link-icon"> Innovate X Coding Challenge
+</a>
+
+
+
+<a href="https://gdg.community.dev/events/details/google-gdg-on-campus-dr-ambedkar-institute-of-technology-for-handicapped-kanpur-india-presents-winter-of-code-info-session/" class="link">
+  <img src="icons/winter.jfif" alt="Code Icon" class="link-icon"> Winter of CODE
+</a>
+
+
+   
+    </div>
+   
+    
+  </div>
+    </div>
+  
+
+  <footer>
+    Made with ❤️ by GDG Tech Team
+  </footer>
+
+  <script>
+    // Auto-detect dark mode
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.body.classList.add("dark");
+    }
+
+    const checkbox = document.getElementById("checkbox")
+checkbox.addEventListener("change", () => {
+  document.body.classList.toggle("dark")
+})
+
+
+   
+  </script>
+</body>
+</html>
