@@ -24,6 +24,7 @@
 
 /* Base styles */
 body {
+  position: relative;
   font-family: Arial, sans-serif;
   background: var(--bg-light);
   color: var(--text-light);
@@ -42,11 +43,11 @@ body.dark {
   color: var(--text-dark);
 }
 body.dark .container {
-  background: rgba(53, 42, 42, 0.7);
+  background: rgba(53, 42, 42, 0.4);
 }
 
 .container {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.4);
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
   backdrop-filter: blur(20px);
@@ -109,8 +110,9 @@ p { margin: 15px 0; }
 
 .link:hover {
   border-color: var(--gdg-blue);
-  color: white;
-  background: var(--gdg-blue);
+  color: black;
+
+  /* background: var(--gdg-blue); */
   transform: scale(1.05);
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
@@ -153,13 +155,19 @@ footer {
 }
 .overlay {
   background-image: url(./logo.png);
-  background-size: 200%; 
+  background-size: 100%; 
   width: 100%;    
   background-position: center;  
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
-  max-width: 600px;
+ 
+  position: relative;
+  justify-content: center;
+  align-items: center;
+
+  
+ 
 }
 
 /* 📱 Mobile */
@@ -170,7 +178,14 @@ footer {
   }
   .overlay{
     width: 98%;
+    background-size: 250%; 
+    
   }
+
+  .hero{
+    display: none;
+  }
+
   .logo{
     height: 50px;
    position: relative;
@@ -247,7 +262,7 @@ footer {
   position: fixed;
   right:-60px;
   rotate: 50deg;
-  top:250px;
+  top:40%;
 
 }
 .circle-green{
@@ -283,7 +298,8 @@ footer {
 .wavy-circle {
   --s: 250px; /* adjust to control the size */
   position: fixed;
-  top:200px;
+  top:35%;
+  /* transform: translateY(-50%); */
   left:-150px;
   background-color: rgba(249, 187, 4);
 
@@ -376,7 +392,7 @@ footer {
     border-right: 50px solid transparent;
     border-bottom: 90px solid rgba(66, 133, 246);
     right: -30px;
-    top: 150px;
+    
   }
   .circle-green {
     width: 250px;
@@ -399,7 +415,6 @@ footer {
   .wavy-circle {
     width: 150px;
     height: 150px;
-    top: 320px;
     left: -80px;
   }
 }
@@ -450,6 +465,20 @@ footer {
 .links{
   z-index: 100;
 }
+.hero{
+  position: absolute;
+ 
+  
+  
+ object-fit: cover;
+ width: 20px;
+
+
+  
+
+  
+}
+
 </style>
 </head>
 <body>
@@ -460,8 +489,12 @@ footer {
   <div class="square-blue"></div>
   <div class="square-green"></div>
   <div class="wavy-circle"></div>
+  
 
     <div class="overlay">
+      <!-- <div class="hero">
+    <img src="logo.png" >
+  </div> -->
         <div class="container">
     <div class="logo" id="gdgLogo">
       <dotlottie-wc
@@ -485,9 +518,11 @@ footer {
     <p>Connect • Learn • Grow</p>
 
     <!-- All your links -->
-<a href="https://gdg.community.dev/gdg-on-campus-dr-ambedkar-institute-of-technology-for-divyangjan-kanpur-india/" class="link">
+
+  <a href="https://gdg.community.dev/gdg-on-campus-dr-ambedkar-institute-of-technology-for-divyangjan-kanpur-india/" class="link">
   <img src="icons/book.png" alt="Chapter Icon" class="link-icon"> Chapter Page
 </a>
+
 
 <a href="https://www.instagram.com/gdg_aitd/profilecard/" class="link">
   <img src="icons/instagram.png" alt="Instagram Icon" class="link-icon"> Instagram
