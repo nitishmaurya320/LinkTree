@@ -96,16 +96,22 @@ p { margin: 15px 0; }
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
   text-decoration: none;
-  background: var(--card-light);
-  color: var(--text-light);
-  border: 2px solid var(--border-light);
-  margin: 10px 0;
-  padding: 12px;
-  border-radius: 30px;
+  padding: 14px 20px;
+  margin: 12px 0;
   font-weight: bold;
-  transition: all 0.3s;
+  font-size: 16px;
+  border-radius: 16px;
+
+  /* Glassmorphism background */
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+  color: var(--text-light);
+  overflow: hidden;
+  transition: all 0.1s ease;
 }
 
 .link:hover {
@@ -118,9 +124,16 @@ p { margin: 15px 0; }
 }
 
 body.dark .link {
-  background: var(--card-dark);
+  background: rgba(255, 255, 255, 0.15);
+  /* border: 2px solid transparent; */
+  background-clip: padding-box;
+  position: relative;
   color: var(--text-dark);
-  border: 2px solid var(--border-dark);
+  overflow: hidden;
+  transition: all 0.1s ease;
+  /* background: var(--card-dark);
+  color: var(--text-dark);
+  border: 2px solid var(--border-dark); */
 }
 
 .toggle-btn {
